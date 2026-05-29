@@ -1,0 +1,575 @@
+Voici une landing page HTML5 complète pour une montre connectée de luxe, avec un design moderne et tout le contenu en dur.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>L'élégance connectée · Montre de luxe intelligente</title>
+  <!-- Google Fonts : Playfair Display + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (gratuit) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* RESET & BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f7fb;
+      color: #1a1a2e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* couleurs du thème */
+    :root {
+      --deep-navy: #1a1a2e;
+      --ruby-red: #e94560;
+      --sapphire: #0f3460;
+      --glass-bg: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --card-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
+    }
+
+    /* GLASS */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    /* GRADIENT BTN */
+    .gradient-btn {
+      display: inline-block;
+      background: linear-gradient(145deg, #e94560, #c81e3a);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 14px 40px;
+      border-radius: 60px;
+      border: none;
+      box-shadow: 0 12px 24px -8px rgba(233, 69, 96, 0.4);
+      transition: all 0.25s ease;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+    }
+
+    .gradient-btn i {
+      margin-right: 10px;
+    }
+
+    .gradient-btn:hover {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 20px 30px -8px rgba(233, 69, 96, 0.5);
+      background: linear-gradient(145deg, #f0536e, #d11f3f);
+    }
+
+    /* CARD générique */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 48px -16px rgba(0,0,0,0.25);
+    }
+
+    /* TESTIMONIAL CARD */
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
+      border-left: 6px solid #e94560;
+      transition: 0.2s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 20px 36px -12px rgba(0,0,0,0.15);
+    }
+
+    /* ========== SECTIONS ========== */
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      letter-spacing: -0.5px;
+    }
+
+    .logo i {
+      color: #e94560;
+      margin-right: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: #1a1a2e;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1a1a2e;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #e94560;
+    }
+
+    .nav-icon {
+      display: flex;
+      gap: 16px;
+      font-size: 1.3rem;
+      color: #0f3460;
+    }
+
+    .nav-icon i {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .nav-icon i:hover {
+      color: #e94560;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 60px 24px 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .hero-content {
+      flex: 1 1 380px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.4rem;
+      line-height: 1.15;
+      color: #1a1a2e;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 i {
+      color: #e94560;
+      font-size: 2.8rem;
+      margin-right: 8px;
+    }
+
+    .hero-sub {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #0f3460;
+      margin-bottom: 28px;
+      max-width: 500px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(233, 69, 96, 0.08);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #e94560;
+      margin-bottom: 24px;
+      border: 1px solid rgba(233, 69, 96, 0.2);
+    }
+
+    .hero-visual {
+      flex: 1 1 340px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #0f3460, #1a1a2e);
+      padding: 32px 24px;
+      border-radius: 48px;
+      color: white;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 30px 40px -16px rgba(0,0,0,0.4);
+      text-align: center;
+    }
+
+    .hero-card i {
+      font-size: 5rem;
+      color: #e94560;
+      margin-bottom: 12px;
+    }
+
+    .hero-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+    }
+
+    .hero-card p {
+      opacity: 0.8;
+      margin: 8px 0 16px;
+    }
+
+    .hero-card .price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 48px;
+      color: #1a1a2e;
+    }
+
+    .section-title span {
+      color: #e94560;
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .features-grid .card {
+      flex: 1 1 260px;
+      max-width: 320px;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .features-grid .card i {
+      font-size: 3.2rem;
+      color: #e94560;
+      margin-bottom: 20px;
+      background: rgba(233, 69, 96, 0.08);
+      padding: 16px;
+      border-radius: 60px;
+    }
+
+    .features-grid .card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .features-grid .card p {
+      color: #2c2c44;
+      font-weight: 300;
+    }
+
+    /* PRODUCT */
+    .product {
+      padding: 60px 0;
+    }
+
+    .product-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 48px;
+      background: #ffffff;
+      border-radius: 56px;
+      padding: 48px 40px;
+      box-shadow: 0 24px 48px -16px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      flex: 1 1 280px;
+      text-align: center;
+    }
+
+    .product-img i {
+      font-size: 8rem;
+      color: #0f3460;
+      background: rgba(15, 52, 96, 0.04);
+      padding: 24px;
+      border-radius: 80px;
+    }
+
+    .product-details {
+      flex: 2 1 360px;
+    }
+
+    .product-details h2 {
+      font-size: 2.4rem;
+      color: #1a1a2e;
+    }
+
+    .product-details .price-big {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #e94560;
+      margin: 12px 0 16px;
+    }
+
+    .product-details ul {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .product-details li {
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 400;
+    }
+
+    .product-details li i {
+      color: #e94560;
+      width: 24px;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 70px 0;
+    }
+
+    .testimonials-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      flex: 1 1 300px;
+      max-width: 420px;
+    }
+
+    .testimonial-card i.fa-quote-left {
+      color: #e94560;
+      font-size: 2rem;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      font-weight: 350;
+      margin: 16px 0;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .testimonial-author i {
+      font-size: 2.4rem;
+      color: #0f3460;
+    }
+
+    .testimonial-author strong {
+      font-weight: 600;
+    }
+
+    /* CTA FINAL */
+    .cta-final {
+      padding: 80px 0 70px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      border-radius: 64px;
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 30px 40px -16px rgba(0,0,0,0.3);
+    }
+
+    .cta-box h2 {
+      font-size: 2.8rem;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .cta-box .gradient-btn {
+      background: white;
+      color: #1a1a2e;
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.3);
+    }
+
+    .cta-box .gradient-btn i {
+      color: #e94560;
+    }
+
+    .cta-box .gradient-btn:hover {
+      background: #f0f0f0;
+      transform: scale(1.02);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #cfd4e6;
+      padding: 40px 24px 24px;
+      border-radius: 40px 40px 0 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand i {
+      font-size: 2rem;
+      color: #e94560;
+      margin-right: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: #b0b8d0;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: #e94560;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      font-size: 0.9rem;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .product-showcase {
+        padding: 32px 20px;
+      }
+      .cta-box {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <i class="fas fa-clock"></i> Élégance
+  </div>
+  <div class="nav-links">
+    <a href="#">Montres</a>
+    <a href="#">Innovation</a>
+    <a href="#">Histoire</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="nav-icon">
+    <i class="fas fa-heart"></i>
+    <i class="fas fa-user"></i>
+    <i class="fas fa-shopping-bag"></i>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-shield-alt"></i> Garantie 2 ans</div>
+      <h1><i class="fas fa-clock"></i> L'élégance connectée</h1>
+      <p class="hero-sub">Montre de luxe intelligente pour les passionnés de technologie et de style</p>
+      <a href="#" class="gradient-btn"><i class="fas fa-clock"></i> Acheter maintenant</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card glass" style="background: rgba(15,52,96,0.6); backdrop-filter: blur(10px);">
+        <i class="fas fa-heartbeat"></i>
+        <h3>
